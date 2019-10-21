@@ -13,7 +13,7 @@ pinMode(LED2, OUTPUT);
 
 void loop() {
   // put your main code here, to run repeatedly:
-int a,b;  
+int a=0,b=0;  
 int n = digitalRead(pinButton1);
 int m = digitalRead(pinButton2);
 while(n == 1)
