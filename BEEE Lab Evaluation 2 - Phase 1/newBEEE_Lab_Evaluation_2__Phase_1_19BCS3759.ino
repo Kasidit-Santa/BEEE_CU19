@@ -1,41 +1,50 @@
-int pinButton1 = 2;
-int pinButton2 = 3;
-int LED1 = 13;
-int LED2 =12;
+int ledPinRed = 12;  
+int ledPinGreen = 13; 
+int buttonPin1 = 11; 
+int buttonPin2 = 10;   
+int buttonState1 = 0;  
+int buttonState2 = 0;
 
+
+
+// the setup function runs once when you press reset or power the board
 void setup() {
-  // put your setup code here, to run once:
-pinMode(pinButton1,INPUT);
-pinMode(pinButton2, INPUT);
-pinMode(LED1, OUTPUT);
-pinMode(LED2, OUTPUT);
+  // initialize digital pin LED_BUILTIN as an output.
+
+  pinMode(ledPinGreen, OUTPUT);
+  pinMode(ledPinRed, OUTPUT);
+  pinMode(buttonPin1, INPUT);
+  pinMode(buttonPin2, INPUT);
 }
 
+// the loop function runs over and over again forever
 void loop() {
-  // put your main code here, to run repeatedly:
-int a=0,b=0;  
-int n = digitalRead(pinButton1);
-int m = digitalRead(pinButton2);
+int a=0,b=0;
+int n = digitalRead(buttonPin1);
+int m = digitalRead(buttonPin2);
 while(n == 1)
 {
   a = 1;
+  break;
 }
 while(m == 1)
 {
   b = 1;
+  break;
 }
-int stateButton = a+b;
-if(stateButton == 2)
+int sum = a+b;
+if(sum == 2)
 {
-  digitalWrite(LED1, HIGH);
-  digitalWrite(LED2, LOW);
+  digitalWrite(ledPinGreen, HIGH);
+  digitalWrite(ledPinRed, LOW);
 }
-else if(stateButton == 1)
+else if(sum == 1)
 {
-  digitalWrite(LED2, HIGH);
+  digitalWrite(ledPinGreen, LOW);
+  digitalWrite(ledPinRed, HIGH);
 }
 else {
-  digitalWrite(LED1, LOW);
-  digitalWrite(LED2, LOW);
+  digitalWrite(ledPinGreen, LOW);
+  digitalWrite(ledPinRed, LOW);
 }
 }
